@@ -21,7 +21,7 @@
 
                 <div class="card-body">
                     @php
-                        $registrationFee = rand(100000, 125000); // Generate random registration price
+                        $registrationFee = rand(200000, 50000); // Generate random registration price
                     @endphp
 
                     <form method="POST" action="{{ route('register') }}">
