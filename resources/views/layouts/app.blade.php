@@ -49,8 +49,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/avatars">
                             Avatar
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/avatars/collection">
+                            Avatar Collection
                         </a>
                     </li>
 

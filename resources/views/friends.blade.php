@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <h1 class="mb-4">Friends</h1>
@@ -34,6 +36,14 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $user->name }}</h5>
                     <p class="card-text">Field of Work: {{ $user->field_of_work }}</p>
+                    
+                    <!-- Display the user's avatar -->
+                    @if ($user->mainAvatar)
+                        <img src="{{ asset($user->mainAvatar->avatar_image) }}" alt="{{ $user->name }}'s Avatar" class="img-fluid rounded-circle" width="200">
+                    @else
+                        <p>No avatar set</p>
+                    @endif
+
                     @if (!in_array($user->id, $thumbedUsers))
                         <form action="{{ route('friends.giveThumb', $user->id) }}" method="POST">
                             @csrf
@@ -50,4 +60,5 @@
     <div class="d-flex justify-content-center">
         {{ $users->links() }}
     </div>
+</div>
 @endsection

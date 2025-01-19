@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AvatarCollection extends Model
 {
-    protected $table = 'avatarCollections';
+    protected $table = 'avatar_Collections';
 
     protected $fillable = [
         'sender_id',

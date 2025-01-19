@@ -36,7 +36,7 @@ class FriendController extends Controller
         $fields = User::select('field_of_work')->distinct()->pluck('field_of_work');
     
         // Paginate the users (ensure pagination is used here)
-        $users = $query->paginate(3);
+        $users = $query->with('mainAvatar')->paginate(3);  // Eager load 'mainAvatar'
     
         // Get the IDs of users who have already received a thumb from the authenticated user
         $thumbedUsers = Friend::where('sender_id', Auth::id())->pluck('receiver_id')->toArray();
