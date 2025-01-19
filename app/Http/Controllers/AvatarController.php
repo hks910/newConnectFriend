@@ -19,9 +19,11 @@ class AvatarController extends Controller
     public function index()
     {
         $avatars = Avatar::all();
-        return view('avatars.index', compact('avatars'));
+        $user = Auth::user(); // Get the authenticated user
+    
+        return view('avatars.index', compact('avatars', 'user'));
     }
-
+    
 
     public function buy(Request $request, $avatarId)
     {
@@ -89,6 +91,17 @@ class AvatarController extends Controller
         return back()->with('error', 'Avatar not found in your collection.');
     }
     
+    public function topUp(Request $request)
+{
+    $user = Auth::user(); // Get the authenticated user
+
+    // Add 100 coins to the user's balance
+    $user->coins += 100;
+    $user->save();  // Save the updated user data
+
+    return back()->with('success', '100 Coins added to your account!');
+}
+
     
     
 }

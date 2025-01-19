@@ -29,6 +29,8 @@ Route::post('/messages/send/{receiverId}', [MessageController::class, 'sendMessa
 
 
 Route::get('/avatars', [AvatarController::class, 'index'])->name('avatars.index');
+Route::post('/avatars/topup', [AvatarController::class, 'topUp'])->name('avatars.topup');
+
 Route::post('/avatars/buy/{avatarId}', [AvatarController::class, 'buy'])->name('avatars.buy');
 
 // Show user's avatar collection

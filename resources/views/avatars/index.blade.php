@@ -1,10 +1,20 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 <div class="container">
     <h1>Avatars</h1>
+    
+    <!-- Display user's current coin balance -->
+    <div class="alert alert-info">
+        <strong>Your Current Coin Balance: </strong> {{ $user->coins }} Coins
+    </div>
+
+    <!-- Button to add 100 coins -->
+    <form action="{{ route('avatars.topup') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-success mb-4">Add 100 Coins</button>
+    </form>
+
     <div class="row">
         @foreach ($avatars as $avatar)
         <div class="col-md-4 mb-3">
@@ -35,4 +45,3 @@
     </div>
 </div>
 @endsection
-
